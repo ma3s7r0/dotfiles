@@ -40,10 +40,10 @@ autoload -Uz compinit && compinit -i
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=3
+export UPDATE_ZSH_DAYS=1
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
@@ -123,6 +123,7 @@ export LC_ALL=en_GB.UTF-8
 alias zshconfig="subl ~/.zshrc"
 alias ohmyzsh="subl ~/.oh-my-zsh/oh-my-zsh.sh"
 alias ll="ls -alh"
+alias batcat="bat --paging=never"
 alias ccat="batcat -pp"
 alias cat="batcat -pp"
 alias clipboard="cb"
@@ -145,8 +146,6 @@ zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<-
 # Allow for autocomplete to be case insensitive
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' \
   '+l:|?=** r:|?=**'
-
-#source ~/.purepower
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
