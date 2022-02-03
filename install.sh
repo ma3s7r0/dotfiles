@@ -11,11 +11,12 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 echo "[-] Download fonts [-]"
 echo "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip"
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip
+[ -e ~/.local/share/fonts ] || mkdir -p ~/.local/share/fonts
 unzip Meslo.zip -d ~/.local/share/fonts
 fc-cache -fv
 rm Meslo.zip
-mv .zshrc .zshrc.before-dotfiles
-mv .p10k.zsh .p10k.zsh.before-dotfiles
+[ -e .zshrc ] || mv .zshrc .zshrc.before-dotfiles
+[ -e .p10k.zsh ] || mv .p10k.zsh .p10k.zsh.before-dotfiles
 ln -s dotfiles/.zshrc
 ln -s dotfiles/.p10k.zsh
 echo "done!"
