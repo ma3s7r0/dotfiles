@@ -130,7 +130,7 @@ alias clipboard="cb"
 alias activatevenv="source venv/bin/activate"
 alias py3="python3"
 alias susu="sudo su - -s /bin/zsh"
-alias updateUbuntu="sudo apt update && sudo apt dist-upgrade && sudo snap refresh"
+alias updateUbuntu="sudo apt update && sudo apt upgrade && sudo snap refresh"
 
 setopt extended_glob
 setopt hist_ignore_space
