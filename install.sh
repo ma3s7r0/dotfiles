@@ -19,4 +19,10 @@ rm Meslo.zip
 [ -e .p10k.zsh ] || mv .p10k.zsh .p10k.zsh.before-dotfiles
 ln -s dotfiles/.zshrc
 ln -s dotfiles/.p10k.zsh
+
+# Fix snaps being displayed in i3 launcher
+appDirectory=~/.local/share/applications
+[ -d $appDirectory ] || mkdir -p $appDirectory
+ln -s /var/lib/snapd/desktop/applications $appDirectory
+
 echo "done!"
