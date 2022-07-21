@@ -8,17 +8,23 @@ echo "[-] Cloning zsh-syntax-highlighting [-]"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 echo "[-] Cloning zsh-autosuggestions [-]"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-#echo "[-] Download fonts [-]"
-#echo "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip"
-#wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip
-#[ -e ~/.local/share/fonts ] || mkdir -p ~/.local/share/fonts
-#unzip Meslo.zip -d ~/.local/share/fonts
-#fc-cache -fv
-#rm Meslo.zip
-[ -e .zshrc ] || mv .zshrc .zshrc.before-dotfiles
-[ -e .p10k.zsh ] || mv .p10k.zsh .p10k.zsh.before-dotfiles
+echo "[-] Download fonts [-]"
+echo "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip"
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip
+[ -e ~/.local/share/fonts ] || mkdir -p ~/.local/share/fonts
+unzip Meslo.zip -d ~/.local/share/fonts
+fc-cache -fv
+rm Meslo.zip
+
+[ -e .zshrc ] && mv .zshrc .zshrc.before-dotfiles
+[ -e .p10k.zsh ] && mv .p10k.zsh .p10k.zsh.before-dotfiles
 ln -s dotfiles/.zshrc
 ln -s dotfiles/.p10k.zsh
+
+i3ConfigLocation=.config/i3/
+[ -e .config/i3/config ] && mv $i3ConfigLocation+config $i3configLocation+config.before-dotfiles
+[ -e $i3ConfigLocation ] || mkdir -p $i3ConfigLocation
+ln -s dotfile/i3/config $i3ConfigLocation+config
 
 # Fix snaps being displayed in i3 launcher
 appDirectory=~/.local/share/applications
